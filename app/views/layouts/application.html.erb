@@ -43,7 +43,14 @@
     </div>
     <!-- header end -->
 
-    <%= yield %>
+    <!-- main content -->
+    <div class="row">
+      <div class="large-12 large-centered columns">
+        <%= yield %>
+      </div>
+    </div>
+    <!-- main content end -->
+
     <%= javascript_include_tag "application" %>
   </body>
 </html>
