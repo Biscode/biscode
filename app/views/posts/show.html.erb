@@ -1,24 +1,77 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+<div class="row">
+  <h1 class="text-center"><%= @post.title %></h1>
+</div>
 
-<p>
-  <strong>Body:</strong>
-  <%= @post.body %>
-</p>
+<div class="row">
+  <div class="large-4 columns">
+      <h4><%= @post.created_at.ctime %></h4>
+  </div>
+  <div class="large-4 columns">
+      <h4>Author</h4>
+  </div>
+  <div class="large-4 columns">
+      <h4><%= @post.category %></h4>
+  </div>
+</div>
 
-<h2>Comments</h2>
-<% @post.comments.each do |comment| %>
+<div class="row">
+  <divc class="large-10 columns">
+    <p class="text-center"><%=@post.body%><p>
+  </div>
+</div>
+
+<div class="row">
+  <hr>
+</div>
+
+
+<div class="row">
+  <h4>Comments</h4>
+</div>
+
+<div class="row">
+  <div class="large-4 columns">
+      <h5>User Name</h5>
+  </div>
+  <div class="large-4 columns">
+      <h5><%= @post.created_at.ctime %></h5>
+  </div>
+   <div class="large-4 columns">
+      <h5></h5>
+  </div>
+</div>
+  <div class="row">
+
+<p ><% @post.comments.each do |comment| %>
   <p>
     <strong>Comment:</strong>
     <%= comment.body %>
+    <div class="row">
+  <hr>
+</div>
   </p>
-<% end %>
+<% end %><p>
 
-<h2>Add a comment:</h2>
+</div>
+
+<!-- <p>
+  <strong>Title:</strong>
+  <%= @post.title %>
+</p> -->
+
+<!-- <p>
+  <strong>Body:</strong>
+  <%= @post.body %>
+</p> -->
+
+<!-- <h2>Comments</h2> -->
+<div class="row">
+  <h3>Add a comment:</h3>
+</div>
+
+
 <%= form_for([@post, @post.comments.build]) do |f| %>
   <p>
     <%= f.label :body %><br>
