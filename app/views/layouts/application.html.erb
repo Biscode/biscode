@@ -17,8 +17,9 @@
     <div class="contain-to-grid sticky">
       <nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: large">
         <ul class="title-area">
+            
           <li class="name">
-            <h1><a href="/">Blog</a></h1>
+            <h1><a href="/"><%= image_tag('logo.png', width:'34', height:'34') %>  Biscode Blog </a></h1>
           </li>
           <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
           <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
@@ -29,6 +30,11 @@
           <ul class="right">
             <li>
               <%= link_to '#' do %>
+              <i class="#" ></i> <b> Home </b>
+              <%end%>
+            </li>
+            <li>
+              <%= link_to '#' do %>
               <i class="fa fa-gear"></i> <b>Profile</b>
               <% end %>
             </li>
@@ -37,6 +43,7 @@
                 <i class="fa fa-power-off"></i> <b>Sign out</b>
               <% end %>
             </li>
+
           </ul>
         </section>
       </nav>
@@ -44,7 +51,7 @@
     <!-- header end -->
 
     <!-- main content -->
-    <div class="row">
+    <div class="row ">
       <div class="large-12 large-centered columns">
         <%= yield %>
       </div>
