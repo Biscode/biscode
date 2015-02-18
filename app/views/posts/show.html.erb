@@ -1,86 +1,55 @@
 <p id="notice"><%= notice %></p>
 
 <div class="row">
-  <h1 class="text-center"><%= @post.title %></h1>
+  <h1 class="text-center">
+    <%= @post.title %>
+    <% if current_user.id == @post.user.id %>
+      <small><%= link_to 'Edit', edit_post_path(@post) %></small>
+    <% end %>
+  </h1>
 </div>
+
+<br><br><br>
 
 <div class="row">
-  <div class="large-4 columns">
-      <h4><%= @post.created_at.ctime %></h4>
+  <div class="small-10 large-8 columns">
+    <h6>
+      <i class="fa fa-calendar-o"> <span><%= @post.created_at.strftime('%d %b %Y') %></span></i>&nbsp; &nbsp;
+      <i class="fa fa-user"> <span><%= User.user_name(@post.user) %></span></i>&nbsp; &nbsp;
+      <i class="fa fa-tags"> <span><%= @post.category %></span></i>
+    </h6>
   </div>
-  <div class="large-4 columns">
-      <h4>Author</h4>
-  </div>
-  <div class="large-4 columns">
-      <h4><%= @post.category %></h4>
+  <div class="large-4 columns text-right">
+      <h6 class="text-right">share on sociale media</h6>
   </div>
 </div>
+<br>
+<%=@post.body%>
+
+<br><br><br>
 
 <div class="row">
-  <divc class="large-10 columns">
-    <p class="text-center"><%=@post.body%><p>
-  </div>
+    <h4>Comments</h4>
+    <% @post.comments.each do |comment| %>
+      <hr>
+      <div class="row">
+        <div class="small-10 large-8 columns">
+          <h6>
+            <i class="fa fa-user"> <span><%= User.user_name(comment.user) %></span></i>
+            <i class="fa fa-calendar-o"> <span><%= comment.created_at.strftime('%d %b %Y') %></span></i>
+          </h6>
+        </div>
+      </div>
+      <%= comment.body %>
+    <% end %>
 </div>
 
-<div class="row">
-  <hr>
-</div>
+<br><br>
 
-
-<div class="row">
-  <h4>Comments</h4>
-</div>
-
-<div class="row">
-  <div class="large-4 columns">
-      <h5>User Name</h5>
-  </div>
-  <div class="large-4 columns">
-      <h5><%= @post.created_at.ctime %></h5>
-  </div>
-   <div class="large-4 columns">
-      <h5></h5>
-  </div>
-</div>
-  <div class="row">
-
-<p ><% @post.comments.each do |comment| %>
-  <p>
-    <strong>Comment:</strong>
-    <%= comment.body %>
-    <div class="row">
-  <hr>
-</div>
-  </p>
-<% end %><p>
-
-</div>
-
-<!-- <p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p> -->
-
-<!-- <p>
-  <strong>Body:</strong>
-  <%= @post.body %>
-</p> -->
-
-<!-- <h2>Comments</h2> -->
 <div class="row">
   <h3>Add a comment:</h3>
+  <%= form_for([@post, @post.comments.build]) do |f| %>
+      <%= f.text_area :body %>
+      <%= f.submit %>
+  <% end %>
 </div>
-
-
-<%= form_for([@post, @post.comments.build]) do |f| %>
-  <p>
-    <%= f.label :body %><br>
-    <%= f.text_area :body %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>

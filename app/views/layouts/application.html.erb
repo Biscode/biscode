@@ -15,9 +15,9 @@
 
     <!-- header -->
     <div class="contain-to-grid sticky">
-      <nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: large">
+      <nav class="top-bar" data-topbar role="navigation">
         <ul class="title-area">
-            
+
           <li class="name">
             <h1><a href="/"><%= image_tag('logo.png', width:'45', height:'45') %>  Biscode Blog </a></h1>
           </li>
@@ -51,9 +51,11 @@
     <!-- header end -->
 
     <!-- main content -->
-    <div class="row ">
-      <div class="large-12 large-centered columns">
+    <div class="row">
+      <div class="small-10 medium-10 large-12 small-centered large-centered columns" role="content">
+        <article>
         <%= yield %>
+        </article>
       </div>
     </div>
     <!-- main content end -->
