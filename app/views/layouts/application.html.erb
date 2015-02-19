@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title><%= content_for?(:title) ? yield(:title) : "Biscode" %></title>
-
+   <link href='http://fonts.googleapis.com/css?family=Merriweather+Sans|Open+Sans|Raleway:900' rel='stylesheet' type='text/css'>
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
@@ -14,12 +14,11 @@
   <body>
 
     <!-- header -->
-    <div class="contain-to-grid sticky">
+    <header class="contain-to-grid sticky">
       <nav class="top-bar" data-topbar role="navigation">
         <ul class="title-area">
-
           <li class="name">
-            <h1><a href="/"><%= image_tag('logo.png', width:'45', height:'45') %>  Biscode Blog </a></h1>
+            <h1><a href="/"><%= image_tag('logo.png', width:'65', height:'65') %> BISCODE</a></h1>
           </li>
           <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
           <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
@@ -29,9 +28,9 @@
           <!-- Right Nav Section -->
           <ul class="right">
             <li>
-              <%= link_to '#' do %>
-              <i class="#" ></i> <b> Home </b>
-              <%end%>
+              <%= link_to root_path do %>
+              <i class="fa fa-home"></i> <b>Home</b>
+              <% end %>
             </li>
             <li>
               <%= link_to '#' do %>
@@ -43,11 +42,15 @@
                 <i class="fa fa-power-off"></i> <b>Sign out</b>
               <% end %>
             </li>
-
+            <li>
+              <%= link_to '#' do %>
+                <b>About</b>
+              <% end %>
+            </li>
           </ul>
         </section>
       </nav>
-    </div>
+    </header>
     <!-- header end -->
 
     <!-- main content -->
