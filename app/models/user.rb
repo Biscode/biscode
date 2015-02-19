@@ -15,4 +15,16 @@ class User < ActiveRecord::Base
       "NA"
     end
   end
+
+
+ def self.user_signature(user_id)
+    user = User.find(user_id)
+    if user.signature
+      user.signature
+    else
+      "NA"
+    end
+  end
+
+
 end
