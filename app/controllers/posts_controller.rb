@@ -10,6 +10,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @post = Post.find(params[:id])
   end
 
   # GET /posts/new
@@ -19,15 +20,17 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
+        @post = Post.find(params[:id])
+
   end
 
   # POST /posts
   # POST /posts.json
   def create
     @user = current_user
-    ## @post = Post.new(post_params)
+    ##@post = Post.new(post_params)
     @post = @user.posts.create(post_params)
-    redirect_to posts_path(@post)
+    redirect_to @post
     # respond_to do |format|
     #   if @post.save
     #     format.html { redirect_to @post, notice: 'Post was successfully created.' }
@@ -64,13 +67,14 @@ class PostsController < ApplicationController
   end
 
   private
+   # Never trust parameters from the scary internet, only allow the white list through.
+    def post_params
+      params.require(:post).permit(:title, :body, :category)
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def post_params
-      params.require(:post).permit(:title, :body, :category)
-    end
+   
 end
