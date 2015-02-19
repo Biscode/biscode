@@ -2,6 +2,15 @@
 
 <h1>Posts</h1>
 
+<%= link_to "All posts", posts_path %>
+
+<% Post.post_categories.each do |c| %>
+  <%= link_to c, posts_path(category: c) %>
+<% end %>
+
+
+<br>
+
 <table>
   <thead>
     <tr>
