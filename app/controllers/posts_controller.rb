@@ -4,7 +4,11 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    if params[:category]
+     @posts = Post.where(category: params[:category]).order("created_at DESC")
+    else
+     @posts = Post.all
+    end
   end
 
   # GET /posts/1
@@ -25,18 +29,8 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @user = current_user
-    ## @post = Post.new(post_params)
     @post = @user.posts.create(post_params)
-    redirect_to posts_path(@post)
-    # respond_to do |format|
-    #   if @post.save
-    #     format.html { redirect_to @post, notice: 'Post was successfully created.' }
-    #     format.json { render :show, status: :created, location: @post }
-    #   else
-    #     format.html { render :new }
-    #     format.json { render json: @post.errors, status: :unprocessable_entity }
-    #   end
-    # end
+    redirect_to @post
   end
 
   # PATCH/PUT /posts/1
@@ -64,13 +58,12 @@ class PostsController < ApplicationController
   end
 
   private
+   # Never trust parameters from the scary internet, only allow the white list through.
+    def post_params
+      params.require(:post).permit(:title, :body, :category)
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params[:id])
-    end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def post_params
-      params.require(:post).permit(:title, :body, :category)
     end
 end
