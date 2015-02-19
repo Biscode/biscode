@@ -8,7 +8,7 @@
 We are Computer Science Students at the [German University in Cairo](http://www.guc.edu.eg/ "GUC")
 
 ### What we do?
-We create cool apps
+We create beautiful and reliable applications
 
 ### Team members
 
