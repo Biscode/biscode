@@ -3,6 +3,16 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-has_many :comments
-has_many :posts
+
+  has_many :comments
+  has_many :posts
+
+  def self.user_name(user_id)
+    user = User.find(user_id)
+    if user.name
+      user.name
+    else
+      "NA"
+    end
+  end
 end
