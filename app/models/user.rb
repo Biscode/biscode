@@ -29,9 +29,11 @@ class User < ActiveRecord::Base
   def self.admin_check
     users = []
     if User.find(is_admin)
-    User.all.map { |i| }
+      User.all.map { |i| }
+    end
   end
 
   #  def self.authorize
   #    User.<is_authorized>.toggle!
   #  end
+end
