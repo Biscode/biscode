@@ -28,6 +28,7 @@ gem 'devise'
 gem 'foundation-rails'
 gem 'font-awesome-sass'
 gem 'carrierwave'
+gem 'rmagick'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
