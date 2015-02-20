@@ -32,23 +32,34 @@
               <i class="fa fa-home"></i> <b>Home</b>
               <% end %>
             </li>
+            <li>
+              <%= link_to '#' do %>
+              <b>About</b>
+              <% end %>
+            </li>
             <% if current_user %>
-            <li>
-              <%= link_to current_user do %>
-              <i class="fa fa-gear"></i> <b>Profile</b>
-              <% end %>
-            </li>
-            <% end %>
-            <li>
-              <%= link_to '#' do %>
+              <li>
+                <%= link_to current_user do %>
+                <i class="fa fa-gear"></i> <b>Profile</b>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to destroy_user_session_path, method: :delete do %>
                 <i class="fa fa-power-off"></i> <b>Sign out</b>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to '#' do %>
-                <b>About</b>
-              <% end %>
-            </li>
+                <% end %>
+              </li>
+            <% else %>
+              <li>
+                <%= link_to new_user_session_path do %>
+                  <b>Sign In</b>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to new_user_registration_path do %>
+                  <b>Sign Up</b>
+                <% end %>
+              </li>
+            <% end %>
           </ul>
         </section>
       </nav>
@@ -65,6 +76,33 @@
     </div>
     <!-- main content end -->
 
+    <footer>
+      <div class="row text-center">
+        <br>
+        <div class="large-4 columns">
+          <h5>
+            <a href="#" target="_blank"><i class="fa fa-github-square fa-2x"></i></a>
+            <a href="#" target="_blank"><i class="fa fa-twitter-square fa-2x"></i></a>
+          </h5>
+        </div>
+
+        <div class="large-4 columns">
+          <h5>&#169; 2015 BISCODE</h5>
+        </div>
+
+        <div class="large-4 columns">
+          <h5>Made with Biscuits in Cairo, Egypt</h5>
+        </div>
+      </div>
+    </footer>
+    <!-- <footer>
+      <hr>
+      <div class="footer text-center">
+        <h5>
+          2015 &#169; BISCODE
+        </h5>
+        </div>
+    </footer> -->
     <%= javascript_include_tag "application" %>
   </body>
 </html>
