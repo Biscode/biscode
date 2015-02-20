@@ -5,6 +5,9 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
+    # if params[:is_admin]
+    # @users = User.where(is_admin: params[:is_admin]).order("created_at DESC")
+
   end
 
   # GET /users/1
