@@ -32,11 +32,13 @@
               <i class="fa fa-home"></i> <b>Home</b>
               <% end %>
             </li>
+            <% if current_user %>
             <li>
-              <%= link_to '#' do %>
+              <%= link_to current_user do %>
               <i class="fa fa-gear"></i> <b>Profile</b>
               <% end %>
             </li>
+            <% end %>
             <li>
               <%= link_to '#' do %>
                 <i class="fa fa-power-off"></i> <b>Sign out</b>
