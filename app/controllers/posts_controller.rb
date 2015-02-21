@@ -29,8 +29,12 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @user = current_user
-    @post = @user.posts.create(post_params)
-    redirect_to @post
+    if current_user.is_authorized
+      @post = @user.posts.create(post_params)
+      redirect_to @post
+    else
+      redirect_to root_path, notice: "You are NOT authorized to post"
+    end
   end
 
   # PATCH/PUT /posts/1
