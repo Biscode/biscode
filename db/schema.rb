@@ -11,8 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150221090052) do
-
+ActiveRecord::Schema.define(version: 20150220045741) do
   create_table "comments", force: :cascade do |t|
     t.text     "body"
     t.integer  "post_id"
@@ -53,6 +52,7 @@ ActiveRecord::Schema.define(version: 20150221090052) do
     t.string   "signature"
     t.string   "image"
     t.boolean  "is_authorized",          default: false
+    t.boolean  "is_admin",               default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
