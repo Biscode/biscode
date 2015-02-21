@@ -35,10 +35,7 @@ body {
   h4 {color: #fff;}
 }
 
-a:hover {
-	color: #22313f ;
-	background: #fff ;
-}
+
 
 header {
   //margin-top: 5px;
@@ -87,3 +84,19 @@ footer {
     font-family: 'Open Sans', sans-serif;
   }
 }
+
+.white-font {
+  h1, h2, h3, h4, h4, h6, p, small, a { 
+    color: white !important;
+  }
+  p {
+
+    font-size: 25px;
+    line-height: 100%;
+  }
+  a:hover {
+    color: #F7CA18 !important ;
+    background: #F64747 ;
+  }
+}
+

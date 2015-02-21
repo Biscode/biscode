@@ -24,8 +24,9 @@
   </div>
 </div>
 <br>
+<p>
 <%=@post.body%>
-
+</p>
 
 <hr>
 <div class="row" align="right" >
@@ -53,16 +54,18 @@
           </h6>
         </div>
       </div>
+      <p>
       <%= comment.body %>
+   </p>
+
     <% end %>
 </div>
 
 <br><br>
 
 <div class="row">
-  <h3>Add a comment:</h3>
   <%= form_for([@post, @post.comments.build]) do |f| %>
-      <%= f.text_area :body %>
-      <%= f.submit %>
+      <%= f.text_area :body, placeholder: 'comment ...' %>
+      <%= f.submit 'Add Comment', class: 'button round' %>
   <% end %>
 </div>

@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+<div class="white-font">
 <h1>Posts</h1>
 
 
@@ -26,3 +27,4 @@
   <h4><small><i class="fa fa-calendar"></i> <%= post.created_at.strftime('%d %b %Y') %></small></h4>
   <h1><%= link_to post.title, post_path(post) %></h1>
 <% end %>
+</div>

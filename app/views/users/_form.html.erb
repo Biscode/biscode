@@ -16,28 +16,27 @@
 </div>
 
 <div class = "field">
-  <%= f.label :remote_image_url%> <br/>
-    <%= f.text_field :remote_image_url%>
+
+    <%= f.text_field :remote_image_url, placeholder: 'Image Url' %>
 </div>
 
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, placeholder: 'Name' %>
   </div>
     <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
+    
+    <%= f.text_field :email ,placeholder:'Email'%>
   </div>
   <div class="field">
-    <%= f.label :about %><br>
-    <%= f.text_field :about %>
+    
+    <%= f.text_field :about,placeholder:'About' %>
   </div>
 
     <div class="field">
-    <%= f.label :signature %><br>
-    <%= f.text_field :signature %>
+   
+    <%= f.text_field :signature ,placeholder:'Signature'%>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Update User', class: 'button round' %>
   </div>
 <% end %>
