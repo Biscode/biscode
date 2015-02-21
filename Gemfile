@@ -25,7 +25,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 ## our gems ##
 gem 'devise'
-gem 'foundation-rails'
+gem 'foundation-rails', '~> 5.4.5.0'
 gem 'font-awesome-sass'
 
 # Use ActiveModel has_secure_password
