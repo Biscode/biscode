@@ -61,6 +61,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def toggle_authorization
+    @user = User.find(params[:id])
+    if @user.is_authorized
+      @user.update_attribute(:is_authorized, false)
+    else
+      @user.update_attribute(:is_authorized, true)
+    end
+    redirect_to users_path
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user

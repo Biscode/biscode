@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  resources :users
+  resources :users do 
+       member do 
+         post :toggle_authorization
+       end 
+     end
+
 
   resources :posts do
     resources :comments

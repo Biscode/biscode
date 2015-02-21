@@ -2,9 +2,17 @@
 
 <h1>Posts</h1>
 
-<div class="right">
-  <%= link_to 'New Post', new_post_path, class: 'button small' %>
-</div>
+
+
+<% if current_user.is_authorized  %>
+	<div class="right">
+	  <%= link_to 'New Post', new_post_path, class: 'button small' %>
+	</div>
+<% end %>
+
+
+
+
 
 <div class="row">
   <%= link_to "All posts", posts_path %>
