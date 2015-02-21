@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20150221090052) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "signature"
+    t.boolean  "is_admin",               default: false
     t.string   "image"
     t.boolean  "is_authorized",          default: false
   end

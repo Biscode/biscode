@@ -56,7 +56,7 @@ GEM
     coffee-script (2.3.0)
       coffee-script-source
       execjs
-    coffee-script-source (1.9.0)
+    coffee-script-source (1.9.1)
     columnize (0.9.0)
     debug_inspector (0.0.2)
     debugger-linecache (1.2.0)
@@ -179,7 +179,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   devise
   font-awesome-sass
-  foundation-rails
+  foundation-rails (~> 5.4.5.0)
   jbuilder (~> 2.0)
   jquery-rails
   rails (= 4.2.0)
