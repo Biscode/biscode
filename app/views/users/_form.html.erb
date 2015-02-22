@@ -45,6 +45,12 @@
   </div>
 
   <div class="actions">
-    <%= f.submit 'Save', class: 'button round' %>
+    <%= f.submit 'Save', class: 'small button round' %>
   </div>
+
+  <%= render :template => 'devise/passwords/edit',
+  :locals => {
+    resource: resource,
+    resource_name: resource_name } %>
+
 <% end %>
