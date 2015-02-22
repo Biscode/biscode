@@ -4,7 +4,8 @@
   <h1 class="text-center">
     <%= @post.title %>
     <% if current_user.id == @post.user.id %>
-      <small><%= link_to 'Edit', edit_post_path(@post) %></small>
+      <small><%= link_to 'Edit', edit_post_path(@post) %></small> |
+      <small><%= link_to 'Delete', @post, method: :delete, data: { confirm: 'Are you sure?' } %></small>
     <% end %>
   </h1>
 </div>
@@ -48,13 +49,16 @@
           <h6>
             <i class="fa fa-user"> <span><%= User.user_name(comment.user) %></span></i>
             <i class="fa fa-calendar-o"> <span><%= comment.created_at.strftime('%d %b %Y') %></span></i>
+              <% if current_user.id == comment.user_id %>
+                | <small><%= link_to 'Edit', edit_post_comment_path(@post, comment) %></small>
+                | <small><%= link_to 'Delete', [@post, comment], method: :delete, data: { confirm: 'Are you sure?' } %></small>
+              <% end %>
           </h6>
         </div>
       </div>
       <p>
-      <%= comment.body %>
-   </p>
-
+        <%= comment.body %>
+      </p>
     <% end %>
 </div>
 
