@@ -25,9 +25,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 ## our gems ##
 gem 'devise'
-gem 'foundation-rails'
+gem 'foundation-rails', '~> 5.4.5.0'
 gem 'font-awesome-sass'
-
+gem 'carrierwave'
+gem 'rmagick'
+gem 'social-share-button'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

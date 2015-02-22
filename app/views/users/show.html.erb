@@ -2,22 +2,19 @@
 
 <div class="row">
   <div class="text-center">
-  		<div class= "profile-picture"><%= image_tag('logo.png', width:'75', height:'75' ) %></div>
-  		<br><br><br><br>
-  		
-  		<h4><%= @user.name %></h4> <br>
-  		<h4><i><%= @user.email %></i></h4><br>	
-  		<h4><%= @user.about %></h4><br>
-  		<h4><%= @user.signature %></h4><br>	
-  			<div class="row">	
-  				<%= link_to 'Edit', edit_user_path(@user) %> |				
-				<%= link_to 'Back', users_path %>
-			</div>
+    <div class ="profile-picture">
+      <%= image_tag @user.image_url.to_s %>
+    </div>
+
+    <br><br><br>
+
+    <h4><%= @user.name %></h4> <br>
+		<h4><i><%= @user.email %></i></h4><br>
+		<h4><%= @user.about %></h4><br>
+		<h4><%= @user.signature %></h4><br>
+    <h4><%= link_to 'Edit', edit_user_path(@user) if current_user == @user %></h4>
+
   </div>
 </div>
 
-
-
-
-
-
+<%= render file: 'users/index' if current_user.is_admin && current_user == @user %>

@@ -1,4 +1,4 @@
-<%= form_for(@user) do |f| %>
+<%= form_for @user, :html => {:multipart => true} do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -11,24 +11,40 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-    <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :about %><br>
-    <%= f.text_field :about %>
+  <div class = "field">
+    <%= f.file_field :image%>
   </div>
 
-    <div class="field">
-    <%= f.label :signature %><br>
-    <%= f.text_field :signature %>
+  <div class="row">
+    <div class="large-12 columns">
+      <div class="row collapse">
+        <div class="small-8 columns">
+          <%= f.text_field :remote_image_url, placeholder: 'Image Url' %>
+        </div>
+        <div class="small-4 columns">
+          <%= f.submit 'Upload', class: 'button postfix round' %>
+        </div>
+      </div>
+    </div>
   </div>
+
+  <div class="field">
+    <%= f.text_field :name, placeholder: 'Name' %>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :email ,placeholder:'Email'%>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :about,placeholder:'About' %>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :signature ,placeholder:'Signature'%>
+  </div>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Save', class: 'button round' %>
   </div>
 <% end %>

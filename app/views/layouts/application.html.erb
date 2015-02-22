@@ -33,7 +33,7 @@
               <% end %>
             </li>
             <li>
-              <%= link_to '#' do %>
+              <%= link_to about_path do %>
               <b>About</b>
               <% end %>
             </li>
@@ -69,40 +69,26 @@
     <!-- main content -->
     <div class="row">
       <div class="small-10 medium-10 large-12 small-centered large-centered columns" role="content">
-        <article>
-        <%= yield %>
-        </article>
+        <div id="wrapper">
+          <div class="white-font">
+            <article>
+              <%= yield %>
+            </article>
+          </div>
+        </div>
       </div>
     </div>
     <!-- main content end -->
 
     <footer>
-      <div class="row text-center">
-        <br>
-        <div class="large-4 columns">
-          <h5>
-            <a href="#" target="_blank"><i class="fa fa-github-square fa-2x"></i></a>
-            <a href="#" target="_blank"><i class="fa fa-twitter-square fa-2x"></i></a>
-          </h5>
-        </div>
-
-        <div class="large-4 columns">
-          <h5>&#169; 2015 BISCODE</h5>
-        </div>
-
-        <div class="large-4 columns">
-          <h5>Made with Biscuits in Cairo, Egypt</h5>
-        </div>
-      </div>
-    </footer>
-    <!-- <footer>
-      <hr>
+      <br>
       <div class="footer text-center">
         <h5>
-          2015 &#169; BISCODE
+          Made with Biscuits by &#169; 2015 BISCODE
         </h5>
         </div>
-    </footer> -->
+    </footer>
+    
     <%= javascript_include_tag "application" %>
   </body>
 </html>

@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :require_owner_authority, only: [:edit, :update, :delete]
+  before_action :ensure_user_is_authorized, only: [:new, :create]
 
   # GET /posts
   # GET /posts.json
@@ -7,7 +9,7 @@ class PostsController < ApplicationController
     if params[:category]
      @posts = Post.where(category: params[:category]).order("created_at DESC")
     else
-     @posts = Post.all
+     @posts = Post.all.order("created_at DESC")
     end
   end
 
@@ -28,7 +30,6 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    @user = current_user
     @post = @user.posts.create(post_params)
     redirect_to @post
   end
@@ -65,5 +66,18 @@ class PostsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params[:id])
+    end
+
+    def require_owner_authority
+      redirect_to root_path unless @post.user_id == current_user.id
+    end
+
+    def ensure_user_is_authorized
+      @user = current_user
+      unless @user.is_authorized
+        redirect_to root_path, notice: "You are NOT authorized to post"
+      else
+        @user
+      end
     end
 end

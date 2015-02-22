@@ -4,7 +4,8 @@
   <h1 class="text-center">
     <%= @post.title %>
     <% if current_user.id == @post.user.id %>
-      <small><%= link_to 'Edit', edit_post_path(@post) %></small>
+      <small><%= link_to 'Edit', edit_post_path(@post) %></small> |
+      <small><%= link_to 'Delete', @post, method: :delete, data: { confirm: 'Are you sure?' } %></small>
     <% end %>
   </h1>
 </div>
@@ -14,28 +15,26 @@
 <div class="row">
   <div class="small-10 large-8 columns">
     <h6>
-      <i class="fa fa-calendar-o"> <span><%= @post.created_at.strftime('%d %b %Y') %></span></i>&nbsp; &nbsp;
+      <i class="fa fa-calendar"> <span><%= @post.created_at.strftime('%d %b %Y') %></span></i>&nbsp; &nbsp;
       <i class="fa fa-user"> <span><%= User.user_name(@post.user) %></span></i>&nbsp; &nbsp;
       <i class="fa fa-tags"> <span><%= @post.category %></span></i>
     </h6>
   </div>
   <div class="large-4 columns text-right">
-      <h6 class="text-right">share on social media</h6>
+      <h1 class="text-right"><%= social_share_button_tag(@post.title) %></h1>
   </div>
 </div>
+
 <br>
+
+<p>
 <%=@post.body%>
+</p>
 
-
-<hr>
 <div class="row" align="right" >
-  <div class="small-10 large-8 columns" >
-    <h6>
-
-      <i class="fa fa-pencil" > <span ><%= User.user_signature(@post.user) %></span></i>&nbsp; &nbsp;
-      
-    </h6>
-  </div>
+  <h6>
+    <i class="fa fa-pencil" > <span ><%= User.user_signature(@post.user) %></span></i>
+  </h6>
 </div>
 
 <br><br><br>
@@ -44,25 +43,30 @@
 <div class="row">
     <h4>Comments</h4>
     <% @post.comments.each do |comment| %>
-      <hr>
+      <br>
       <div class="row">
         <div class="small-10 large-8 columns">
           <h6>
             <i class="fa fa-user"> <span><%= User.user_name(comment.user) %></span></i>
             <i class="fa fa-calendar-o"> <span><%= comment.created_at.strftime('%d %b %Y') %></span></i>
+              <% if current_user.id == comment.user_id %>
+                | <small><%= link_to 'Edit', edit_post_comment_path(@post, comment) %></small>
+                | <small><%= link_to 'Delete', [@post, comment], method: :delete, data: { confirm: 'Are you sure?' } %></small>
+              <% end %>
           </h6>
         </div>
       </div>
-      <%= comment.body %>
+      <p>
+        <%= comment.body %>
+      </p>
     <% end %>
 </div>
 
 <br><br>
 
 <div class="row">
-  <h3>Add a comment:</h3>
   <%= form_for([@post, @post.comments.build]) do |f| %>
-      <%= f.text_area :body %>
-      <%= f.submit %>
+      <%= f.text_area :body, placeholder: 'comment ...' %>
+      <%= f.submit 'Add Comment', class: 'button round' %>
   <% end %>
 </div>

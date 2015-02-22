@@ -1,0 +1,16 @@
+<h2>
+	BISCODE
+</h2>
+
+<br>
+
+<h3>
+	We Create Beautiful and Reliable Applications
+</h3>
+
+<br>
+
+<h3>Team</h3>
+<% @team_members.each do |member| %>
+	<h5><%= link_to member.name, member %></h5>
+<% end %>

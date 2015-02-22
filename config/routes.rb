@@ -1,11 +1,20 @@
 Rails.application.routes.draw do
 
-  devise_for :users
-  resources :users
+  devise_for :users, :controllers => { :registrations => "registrations" }
+  resources :users do
+       member do
+         post :toggle_authorization
+         post :join_team
+       end
+     end
+
 
   resources :posts do
     resources :comments
   end
+
+
+  get 'about' => 'static_pages#about'
 
   root 'posts#index'
   # The priority is based upon order of creation: first created -> highest priority.
