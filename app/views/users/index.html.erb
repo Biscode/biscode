@@ -13,11 +13,11 @@
     </div>
 
     <div  class="large-2 columns">
-      <h5><%= link_to authorize_user_text_helper(user), toggle_authorization_user_path(user), method: :post, class: 'small button round' %></h5>
+      <h5><%= link_to authorize_user_text(user), toggle_authorization_user_path(user), method: :post, class: 'small button round' %></h5>
     </div>
 
     <div  class="large-2 columns">
-      <h5><%= link_to 'Join Team', toggle_authorization_user_path(user), method: :post, class: 'small button round' %></h5>
+      <h5><%= link_to join_team_text(user), join_team_user_path(user), method: :post, class: 'small button round' %></h5>
     </div>
   </div>
 

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :toggle_authorization, :join_team]
   before_action :ensure_user_is_admin, only: [:index, :delete]
   before_action :require_owner_authority, only: [:edit, :update]
 
@@ -44,11 +44,19 @@ class UsersController < ApplicationController
   end
 
   def toggle_authorization
-    @user = User.find(params[:id])
     if @user.is_authorized
       @user.update_attribute(:is_authorized, false)
     else
       @user.update_attribute(:is_authorized, true)
+    end
+    redirect_to :back
+  end
+
+  def join_team
+    if @user.from_team
+      @user.update_attribute(:from_team, false)
+    else
+      @user.update_attribute(:from_team, true)
     end
     redirect_to :back
   end

@@ -17,4 +17,4 @@
   </div>
 </div>
 
-<%= render file: 'users/index' if current_user.is_admin %>
+<%= render file: 'users/index' if current_user.is_admin && current_user == @user %>

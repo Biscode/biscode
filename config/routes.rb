@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :users do
        member do
          post :toggle_authorization
+         post :join_team
        end
      end
 
