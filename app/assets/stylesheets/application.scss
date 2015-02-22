@@ -32,7 +32,6 @@ body {
 	background: #680000;
   font-family: 'Open Sans', sans-serif;
   font-size: 18px;
-  h4 {color: #fff;}
 }
 
 
@@ -45,6 +44,7 @@ header {
 
 hr {
   border:0;
+  // border-top: 1px solid #ccc;
   height:1px;
   background-image:-webkit-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.75),rgba(0,0,0,0));
   background-image:-moz-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.75),rgba(0,0,0,0));
@@ -73,31 +73,37 @@ hr {
 
 footer {
   margin-top: 50px;
-  left: 0;
-  bottom: 0;
-  height: 100px;
-  width: 100%;
-
+  // left: 0;
+  // bottom: 0;
+  // height: 100px;
+  // width: 100%;
 
   background: white;
-  a, h5 {
-    color: #96281B;
+  a, i, h5 {
+    color: #96281B !important;
     font-family: 'Open Sans', sans-serif;
+  }
+  a:hover {
+    i {
+      color: black !important;
+    }
   }
 }
 
 .white-font {
-  h1, h2, h3, h4, h4, h6, p, small, a { 
+  h1, h2, h3, h4, h4, h6, p, small, a {
     color: white !important;
   }
   p {
-
     font-size: 25px;
     line-height: 100%;
   }
+
+  .button {
+    color: black !important;
+  }
+
   a:hover {
-    color: #F7CA18 !important ;
-    background: #F64747 ;
+    color: black !important ;
   }
 }
-

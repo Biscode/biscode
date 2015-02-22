@@ -11,32 +11,40 @@
     </div>
   <% end %>
 
-<div class = "field">
-  <%= f.file_field :image%>
-</div>
+  <div class = "field">
+    <%= f.file_field :image%>
+  </div>
 
-<div class = "field">
-
-    <%= f.text_field :remote_image_url, placeholder: 'Image Url' %>
-</div>
+  <div class="row">
+    <div class="large-12 columns">
+      <div class="row collapse">
+        <div class="small-8 columns">
+          <%= f.text_field :remote_image_url, placeholder: 'Image Url' %>
+        </div>
+        <div class="small-4 columns">
+          <%= f.submit 'Upload', class: 'button postfix round' %>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="field">
     <%= f.text_field :name, placeholder: 'Name' %>
   </div>
-    <div class="field">
-    
+
+  <div class="field">
     <%= f.text_field :email ,placeholder:'Email'%>
   </div>
+
   <div class="field">
-    
     <%= f.text_field :about,placeholder:'About' %>
   </div>
 
-    <div class="field">
-   
+  <div class="field">
     <%= f.text_field :signature ,placeholder:'Signature'%>
   </div>
+
   <div class="actions">
-    <%= f.submit 'Update User', class: 'button round' %>
+    <%= f.submit 'Save', class: 'button round' %>
   </div>
 <% end %>

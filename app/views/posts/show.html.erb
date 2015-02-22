@@ -23,20 +23,17 @@
       <h6 class="text-right">share on social media</h6>
   </div>
 </div>
+
 <br>
+
 <p>
 <%=@post.body%>
 </p>
 
-<hr>
 <div class="row" align="right" >
-  <div class="small-10 large-8 columns" >
-    <h6>
-
-      <i class="fa fa-pencil" > <span ><%= User.user_signature(@post.user) %></span></i>&nbsp; &nbsp;
-      
-    </h6>
-  </div>
+  <h6>
+    <i class="fa fa-pencil" > <span ><%= User.user_signature(@post.user) %></span></i>
+  </h6>
 </div>
 
 <br><br><br>
@@ -45,7 +42,7 @@
 <div class="row">
     <h4>Comments</h4>
     <% @post.comments.each do |comment| %>
-      <hr>
+      <br>
       <div class="row">
         <div class="small-10 large-8 columns">
           <h6>
