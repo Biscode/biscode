@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
-  devise_for :users
-  resources :users do 
-       member do 
+  devise_for :users, :controllers => { :registrations => "registrations" }
+  resources :users do
+       member do
          post :toggle_authorization
-       end 
+       end
      end
 
 
