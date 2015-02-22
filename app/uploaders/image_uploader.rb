@@ -16,6 +16,11 @@ class ImageUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
+
+  def default_url
+    ActionController::Base.helpers.asset_path("defaultpp.png")
+  end
+
   # process :resize_to_fit => [500, 500]
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
