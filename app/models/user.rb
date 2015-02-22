@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   has_many :posts, dependent: :destroy
 
+  validates :email, presence: true, uniqueness: true
+  
   mount_uploader :image, ImageUploader
 
   def self.user_name(user_id)
