@@ -9,7 +9,7 @@ class PostsController < ApplicationController
     if params[:category]
      @posts = Post.where(category: params[:category]).order("created_at DESC")
     else
-     @posts = Post.all
+     @posts = Post.all.order("created_at DESC")
     end
   end
 

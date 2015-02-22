@@ -15,7 +15,7 @@
 <div class="row">
   <div class="small-10 large-8 columns">
     <h6>
-      <i class="fa fa-calendar-o"> <span><%= @post.created_at.strftime('%d %b %Y') %></span></i>&nbsp; &nbsp;
+      <i class="fa fa-calendar"> <span><%= @post.created_at.strftime('%d %b %Y') %></span></i>&nbsp; &nbsp;
       <i class="fa fa-user"> <span><%= User.user_name(@post.user) %></span></i>&nbsp; &nbsp;
       <i class="fa fa-tags"> <span><%= @post.category %></span></i>
     </h6>
